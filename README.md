@@ -61,5 +61,44 @@ How to Run Locally
 
 5. Visit http://127.0.0.1:8000
 
- Academic Note
+Database & Admin Panel
+
+Database Configuration
+
+This project uses MySQL as the database. To connect your local MySQL instance with the Django app, update the DATABASES settings in settings.py:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'your_database_name',
+        'USER': 'your_mysql_username',
+        'PASSWORD': 'your_mysql_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+Note: Replace the placeholders with your own MySQL credentials. Do not commit actual passwords to version control.
+
+Django Admin Panel
+
+This project includes a fully functional Django Admin panel to manage:
+
+- Pet listings
+- Product inventory
+- Adoption requests
+- User submissions
+
+To access it:
+
+1. Create a superuser (if not already done):  
+   python manage.py createsuperuser
+
+2. Run the server and visit:  
+   http://127.0.0.1:8000/admin
+
+3. Log in with your superuser credentials.
+
+Academic Note
+
 This project was developed as part of an academic course and is intended for educational and demonstration purposes only. It is not a commercial product.

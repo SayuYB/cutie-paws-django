@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <title>Pet Food Products</title>
+    <link rel="stylesheet" href="{% static 'petapp/style.css' %}">
+
+    <!--Add icon library-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="{% static 'petapp/scripts.js' %}"></script>
+
+<style>
+
+    .container {
+         display: flex;
+         justify-content: center;
+         gap: 30px;
+     }
+
+     .card {
+         width: 350px;
+         height: 340px;
+          position: relative;
+         transition: all 0.2s ease;
+         cursor: grab;
+         border-radius: 12px;
+         overflow: hidden;
+         display: flex;
+         flex-direction: column;
+         padding: 10px;
+         border: 1px solid #ddd;
+         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+     }
+
+     .card:hover {
+     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+     transform: scale(1.01);
+     }
+
+     .card-image {
+
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 170px;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 10px;
+     }
+
+ .card-btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 48px;
+    display: flex;
+    grid-gap: 8px;
+    cursor: grab;
+    color: black;
+    background: white;
+    border: 2px solid black;
+    }
+
+
+    .text {
+    text-align: center;
+    padding: 2rem 0;
+    }
+</style>
+
+</head>
+<body>
+    <script src="{% static 'petapp/scripts.js' %}"></script>
+
+    <header>
+
+        <!--Header section--->
+        <section class="home">
+
+        <nav class="navbar">
+            <div class="logo">
+                Cutie Paw's <br>
+                ...🐼 🐶... <br>
+                The Pet Store
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-menu-item"><i class="fa fa-shopping-cart"></i><a href="{% url 'cart' %}"> Cart</a></li>
+                 <li class="navbar-menu-item"><i class="fa fa-user"></i><a href="{% url 'profile' %}"> User</a></li>
+                <li class="navbar-menu-item"><i class=""></i><a href=""> </a></li>
+
+            </ul>
+        </nav>
+        </section>
+    </header>
+
+    <!--Dogs food-->
+    <div class="text">
+        <h1>Dogs Food</h1>
+        <h3>Discover a wide range of Dog Food for your beloved pets.</h3>
+      </div>
+        <div class="container">
+      {% for product in dog_food %}
+            <div class="card">
+                <div class="card-image" style="background-image: url('{{ product.image.url }}')"></div>
+                <div class="product-title">{{ product.name }}</div>
+                <div class="product-price">${{ product.price }}</div>
+
+                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                    <button type="submit" class="addtocart"><i class="fa fa-shopping-cart">Add to Cart</i></button>
+                </form>
+            </div>
+      {% endfor %}
+
+    </div>
+    <!--Cats food-->
+
+    <div class="text">
+        <h1>Cat's Food</h1>
+        <h3>Discover a wide range of Cat's Food for your beloved pets.</h3>
+      </div>
+        <div class="container">
+        {% for product in cat_food %}
+            <div class="card">
+                <div class="card-image" style="background-image: url('{{ product.image.url }}')"></div>
+                <div class="product-title">{{ product.name }}</div>
+                <div class="product-price">${{ product.price }}</div>
+                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                    <button type="submit" class="addtocart"><i class="fa fa-shopping-cart">Add to Cart</i></button>
+                </form>
+            </div>
+      {% endfor %}
+    </div>
+
+<!--Fish food-->
+
+
+    <div class="text">
+        <h1>Fish Food</h1>
+        <h3>Discover a wide range of Fish Food for your beloved pets.</h3>
+      </div>
+
+      <div class="container">
+        {% for product in fish_food %}
+            <div class="card">
+                <div class="card-image" style="background-image: url('{{ product.image.url }}')"></div>
+                <div class="product-title">{{ product.name }}</div>
+                <div class="product-price">${{ product.price }}</div>
+                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                    <button type="submit" class="addtocart"><i class="fa fa-shopping-cart">Add to Cart</i></button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+<!--Birds food-->
+
+    <div class="text">
+        <h1>Bird's Food</h1>
+        <h3>Discover a wide range of Fish Food for your beloved pets.</h3>
+      </div>
+
+        <div class="container">
+            {% for product in bird_food %}
+                <div class="card">
+                    <div class="card-image" style="background-image: url('{{ product.image.url }}')"></div>
+                    <div class="product-title">{{ product.name }}</div>
+                    <div class="product-price">${{ product.price }}</div>
+                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                    <button type="submit" class="addtocart"><i class="fa fa-shopping-cart">Add to Cart</i></button>
+                </form>
+                </div>
+          {% endfor %}
+      </div>
+    
+    
+
+</body>
+</html>

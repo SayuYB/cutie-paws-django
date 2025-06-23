@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.productcont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product {
+    flex-basis: 45%;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.productname {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.price {
+    color: blue
+}
+
+.cart-container {
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #A020F0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+button:hover {
+    background-color:#A020F0;
+}
+#total{
+    color: blue;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <div id="alerts"></div>
+        <div class="productcont">
+
+            {% for item in cart_items %}
+                <div class="product">
+                    <h3 class="productname">{{ item.product.name }}</h3>
+                    <p>{{ item.product.description }}</p>
+                    <p class="price">${{ item.product.price }}</p>
+                    <p>Quantity: </p>
+
+                    <form action="{% url 'update_cart' item.id %}" method="post">
+                        {% csrf_token %}
+                        <br>
+                        <input type="number" name="quantity" min="1" value="{{ item.quantity }}">
+                        <br>
+                        <button type="submit" class="updatecart">Update Quantity</button>
+                    </form>
+
+                </div>
+            {% endfor %}
+        </div>
+        <div class="cart-container">
+            <h2>Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Product</strong></th>
+                        <th><strong>Price</strong></th>
+                        <th><strong>Quantity</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="carttable">
+                    {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.product.name }}</td>
+                            <td>{{ item.product.price }}</td>
+                            <td>{{ item.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+            <table id="carttotals">
+                <tr>
+                    <td style="font-size: 30px; font-weight: bold;"><strong>Total</strong></td>
+                    <td style="text-align: right;"><span id="total">${{ total_price }}</span></td>
+                </tr>
+            </table>
+            <br>
+            <div class="cart-buttons">
+                <form action="{% url 'empty_cart' %}" method="post">
+                    {% csrf_token %}
+                    <button id="emptycart" type="submit">Empty Cart</button>
+                </form>
+
+                <form action="{% url 'checkout' %}" method="post">
+                    {% csrf_token %}
+                    <button id="checkout" type="submit">Checkout</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

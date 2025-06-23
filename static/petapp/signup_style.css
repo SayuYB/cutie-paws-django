@@ -1,0 +1,48 @@
+/* signup.css */
+.signup-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+}
+
+.signup-container h2 {
+    text-align: center;
+    color: #800080; /* Purple heading color */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #800080; /* Purple label color */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #800080; /* Purple button background */
+    color: #fff; /* Button text color */
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #4b004b; /* Darker purple on hover */
+}

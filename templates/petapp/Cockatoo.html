@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <title>Pet for Adoption </title>
+    <link rel="stylesheet" href="{% static 'petapp/style.css' %}">
+
+    <!--Add icon library--> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+<script src="{% static 'petapp/scripts.js' %}"></script>
+
+<style>
+       
+       @media (min-width: 1200px) {
+   .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.container{
+    padding: 20px;
+    text-align: center;
+}
+
+.inner-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-container {
+    width: 50%;
+}
+
+.image-container {
+    width: 45%;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.contact-button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-button i {
+    font-size: 20px;
+}
+
+.dog_breads{
+    color:orange;
+}
+
+.dog_contact-button{
+    color:orangered;
+
+}
+.call-button{
+    color:white;
+    background-color: orangered;
+}
+
+.points{
+    color:orangered;
+}
+
+</style>
+
+</head>
+<body>
+
+    <header>
+
+        <!--Header section--->
+        <section class="home">
+
+        <nav class="navbar">
+            <div class="logo"> 
+                Cutie Paw's <br>
+                ...🐼 🐶... <br> 
+                The Pet Store
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-menu-item"><i class="fa fa-user"></i><a href="{% url 'profile' %}"> User</a></li>
+                <li class="navbar-menu-item"><i class=""></i><a href=""> </a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="inner-container">
+            <div class="text-container">
+                <h1><u><i>Pet for Adoption!</i></u></h1>
+                <h1 class="dog_breads">Cockatoo</h2>
+                <h4><strong class="points"><u>Nature : </u></strong> Cockatoos are affectionate and intelligent birds known for their outgoing personalities and playful behavior. They form strong bonds with their owners and require lots of attention and social interaction.</h4>
+                <h4><strong class="points"><u>Expertise : </u></strong> Cockatoos are highly trainable and can learn to perform a variety of tricks and behaviors. They enjoy being the center of attention and thrive in environments with plenty of mental stimulation.
+                </h4>
+                <h4><strong class="points"><u>Coat : </u></strong> Cockatoos have large white or light-colored feathers with a distinctive crest on their heads. Their cheeks may blush when they are excited or agitated.</h4>
+                <h4><strong class="points"><u>Price : </u></strong>$256</h4>
+
+                <div class="dog_contact-button">
+                    <p> <a href="tel:+91 8530677281" class="call-button"><i class="fa fa-call"></i>Call Us</a></p>
+                </div>
+                
+            </div>
+
+            <div class="image-container">
+                <img src='{% static "petapp/img/Cockatoo.jpg" %}' alt="Product 1" class="image">
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

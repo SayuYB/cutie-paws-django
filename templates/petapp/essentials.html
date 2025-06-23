@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+    <title>Cutie paw's</title>
+    <style>
+       
+       .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            width: 350px;
+            height: 300px;
+             position: relative;
+            transition: all 0.2s ease;
+            cursor: grab;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+        transform: scale(1.01); 
+        }
+
+        .card-image {
+
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+    .card-btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 48px;
+    display: flex;
+    grid-gap: 8px;
+    cursor: grab;
+    color: black;
+    background: white;
+    border: 2px solid black;
+    }
+
+
+.text {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="text">
+        <h1>Pet Essentials</h1>
+        <h3>Discover a wide range of pet essentials for your beloved pets.</h3>
+      </div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-image" style="background-image: url('{% static 'petapp/img/pet_food.jpg' %}')"></div>
+            <h2>Food & Treats</h2>
+                <a href = "{% url 'food' %}">
+                <button class="card-btn">Shop </button>
+                </a>       
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url('{% static 'petapp/img/pet_toys.jpg' %}')"></div>
+            <h2>Toys</h2>
+                <a href = "{% url 'toys' %}">
+                <button class="card-btn">Shop </button>
+                </a>       
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image:url('{% static 'petapp/img/pet_furniture.jpg' %}')"></div>
+            <h2>Bed and Furniture</h2>
+                <a href = "{% url 'furniture' %}">
+                <button class="card-btn">Shop </button>
+                </a>       
+        </div>
+
+        <div class="card">
+            <div class="card-image" style="background-image: url('{% static 'petapp/img/pet_cloths.jpg' %}')"></div>
+            <h2>Clothing</h2>
+                <a href = "{% url 'clothing' %}">
+                <button class="card-btn">Shop </button>
+                </a>       
+        </div>
+
+    </div>
+</body>
+</html>

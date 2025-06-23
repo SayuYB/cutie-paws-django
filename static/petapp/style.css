@@ -1,0 +1,500 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/* Navigation bar --------------------------------- */
+
+.logo{
+    color: black;
+    font-size: 10px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color:transparent;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
+    background-image: url('{% static 'petapp/img/bg.png' %}') repeat center ;
+
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-menu a{
+    color:black;
+}
+
+.navbar-menu-item {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar-menu-item:hover {
+    background-color:plum;
+}
+
+.username-list-item {
+    color: #333; /* Dark text color */
+    font-size: 16px;
+    font-weight: bold;
+    list-style: none; /* Remove bullet point */
+    margin-bottom: 10px; /* Add space between list items */
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    color: #333;
+    background-color: #333;
+    width: 100%;
+    margin-top: 1rem 0;
+}
+
+/* Home page-------------------------------- */
+
+.home-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    background-image:url ('{% static 'petapp/img/home.jpg' %}') no-repeat center ;
+    background-size: cover;
+}
+
+.home-page h1 {
+    font-size: 3rem;
+    color: black;
+    margin-top: 1%;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 18rem;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;    
+}
+
+.btn:hover {                          
+    background-color:aliceblue;
+    color:black;
+    border: 2px solid  black;
+  }
+
+/*-------- Store Section--------*/
+
+.store h2{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.text_shadows {
+  text-shadow: 6px 6px 0 purple;
+  font-family: bungee, sans-serif; 
+  font-weight: 400;
+  text-transform: uppercase;                                                  
+  font-size: 70px;
+  text-align: center;
+  margin: 0;
+  color: plum;
+  color: transparent;
+  background-color: white;
+  background-clip: text;
+  animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+
+  40% {
+    text-shadow: 3px 3px 0 purple,
+      6px 6px 0 purple, 9px 9px purple,
+      12px 12px 0 purple;
+  }
+
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.card h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 400px;
+     position: relative;
+    transition: all 0.2s ease;
+    cursor: grab;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+transform: scale(1.01); 
+}
+
+.card-image{
+position: relative;
+border-radius: 15px;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 150px;
+background-size: cover;
+background-position: center;
+margin-bottom: 10px;
+}
+
+
+.card ul {
+padding: 20px 0 24px;
+display: flex;
+flex-direction: column;
+grid-gap: 8px;
+flex: 1;
+padding: 0 40px 40px;
+font-size: 20px;
+font-weight: 600;
+line-height: 1.5;
+list-style-type: none;
+}
+
+.card ul li a {
+font-size: 14px;
+color: black;
+}
+
+.card-btn {
+font-size: 14px;
+font-weight: 600;
+padding: 12px 24px;
+border-radius: 48px;
+display: flex;
+grid-gap: 8px;
+cursor: grab;
+color: white;
+background: black;
+border: 2px solid white;
+}
+
+.card-btn :hover {
+background:  lightslategray;
+border: 2px solid  black;
+color: black;
+}
+
+/**about-us ----------------**/
+
+.about{
+    background-color: white;
+    padding: 50px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .heading {
+    text-align: center;
+    flex: 1;
+    margin-top: 30px;
+    font-family: cursive;
+    font-size: 3rem;
+    color: purple;
+    margin-bottom: 45px;
+  }
+  
+  .image-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .image {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .text {
+    flex: 1;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 19px;
+    align-self: flex-start;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  /** Contact section------------**/
+
+  .contact-section {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    background-color: white;
+  }
+  
+  .section-heading {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3rem;
+    font-family: cursive;
+    color: purple;
+  }
+  
+  .section-heading u{
+    margin-top: 5px;
+  }
+
+
+  .section-text {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.7rem;
+    margin-bottom: 50px;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-right: 10px;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .contact-form input,.contact-form textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form button {
+    display: block;
+    width: 100%;
+    background-color: purple;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: orchid;
+  }
+  
+  .contact-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .call-button {
+    display: inline-block;
+    background-color: purple;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .call-button:hover {
+    background-color: orchid;
+  }
+  
+  .call-text {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .call-text p a {
+    color: blueviolet;
+    text-decoration: none;
+  }
+
+  /**Footer Section*****************/
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    height: 40vh;
+    color: black;    
+    background-image: url('{% static 'petapp/img/bg.png' %}') repeat center ;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .footer-heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 33.33%;
+  }
+  
+  .footer-logo-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+/*Food Product*/
+
+.addtocart{
+  background-color: transparent;
+  border: none;
+  background-color: black;
+  color: white;
+  border: 4px solid  white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addtocart:hover {
+  background-color: white;
+  border: 2px solid  black;
+  color: black;
+}
+
+
+.product-title{
+  align-self: center;
+}
+
+.product-price{
+  align-self: center;
+}
+
+
+
+          /**          dogs page          **/
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Cutie Paw's</title>
+    <link rel="stylesheet" href="{% static 'petapp/style.css' %}">
+    
+</head>
+<body>
+
+    <header>
+
+        <!--Header section--->
+        <section class="home">
+
+        <nav class="navbar" style= "background-image: url('{% static 'petapp/img/bg.png' %}')">
+            <div class="logo"> 
+                Cutie Paw's <br>...🐼 🐶... <br> The Pet Store
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-menu-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="navbar-menu-item"><a href="#about">About</a></li>
+                <li class="navbar-menu-item"><a href="#store">Products</a></li>
+                <li class="navbar-menu-item"><a href="#contact">Contact</a></li>
+                <li class="navbar-menu-item"><a href="{% url 'faqs' %}">Faqs</a></li>
+                {% if user.is_authenticated %}
+                    <li class="navbar-menu-item"><a href="{% url 'signout' %}">Sign Out</a></li>
+                    <li class="navbar-menu-item"><a href="{% url 'profile' %}">{{ user.username }}</a></li>
+                {% else %}
+                    <li class="navbar-menu-item"><a href="/signup">Sign-up</a></li>
+                    <li class="navbar-menu-item"><a href="/signin">Sign-In</a></li>
+                {% endif %}
+                <!--profile--->
+
+            </ul>
+        </nav>
+        </section>
+    </header>
+    <div class="home-page" style="background-image: url('{% static 'petapp/img/home.jpg' %}')" >
+        <h1>Your One-Step Shop for <br> Every Pet Needs!</h1>
+        <a href="#contact"><button class="btn">Contact🤙🏻</button></a>
+    </div>
+   
+        <!-------- store Section-------->
+ <div id="store">
+<section class="store">
+
+    <div class="content">
+        <h2 class="text_shadows">Our Store</h2>
+      </div>
+      
+        <div class="container">
+            <div class="card">
+                <div class="card-image" style="background-image: url('{% static 'petapp/img/pet.png' %}')"></div>
+                <h2><b>Pets</b></h2>
+                <ul class="card-list">
+                  <li><a href="/dog">Dogs</a></li>
+                  <li><a href="/cat">Cats</a></li>
+                  <li><a href="/fish">Fish</a></li>
+                  <li><a href="/birds">Birds</a></li>
+
+                  <a href = "/pet">
+                    <button class="card-btn">View</button>
+                    </a>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image:url('{% static 'petapp/img/pet_furniture.jpg' %}')"></div>
+                <h2><b>Essentials</b></h2>
+                <ul class="card-list">
+                    <li><a href="/food">Food & Treats</a></li>
+                    <li><a href="/toys">Toys</a></li>
+                    <li><a href="/furniture">Beds & Furniture</a></li>
+                    <li><a href="/clothing">Clothing</a></li>
+                    <a href = "/essentials">
+                    <button class="card-btn">View</button>
+                    </a>
+                </ul>
+            </div>
+        </div>
+</section>
+</div>
+
+<!-- about section starts  -->
+<div id="about">
+<section class="about">
+
+    <h1 class="heading">What makes our <u>Cutie Paw's</u> special ?</h1>
+
+    <div class="container">
+        <div class="image-text">
+        <img src='{% static "petapp/img/about.png" %}'>
+        <div class="text">
+          <p>At The Pet Shop we're proud to offer pet owners with the best selection of high-quality, nutrient-rich food & treats made with your pet’s health in mind.</p>
+        <p>We’re a product recommended establishment and we work directly with you to select the best products for your furry family member. We also offer a selection of safe supplements, toys, and supplies.</p>
+        <p>Pet owners choose us time and time again, and we can’t wait to show you why!</p>
+        <p>Or store is located at: 630 Orange Drive in Vacaville, California. </p>
+        <p>Hours are 9-7pm Monday-Friday, 10-6pm Saturdays ***Closed on Sundays</p>
+        <p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+ </div>
+
+  <!-- Contact section----------------------->
+<div id="contact">
+  <section class="contact-section">
+    <h2 class="section-heading"><u>Get In Touch</u></h2>
+    <p class="section-text"><b>We'd love to hear from you! Fill out the form below and we'll get back to you <br> as soon as possible.</b></p>
+    <div class="contact-container">
+      <div class="contact-form">
+        <form method="POST" action="{% url 'message_view' %}">
+            {% csrf_token %}
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message"  placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-button">
+       <p> <a href="tel:+1234567890" class="call-button">Call Us</a></p>
+        <p class="call-text">Or call us at <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+  <!--Footer Section-------------->
+
+  <footer class="footer" style= "background-image: url('{% static 'petapp/img/bg.png' %}')">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="logo"><img src="{% static 'petapp/img/logo.png' %}" alt="Logo" class="footer-logo-image"
+        /></a>
+        <h3 class="footer-heading">Cutie Paw's</h3>
+      </div>
+
+      <div class in="footer-content">
+        <h3 class="footer-heading"><u>Contact Us</u></h3>
+        <p>630 Orange Drive in Vacaville, California</p>
+        <p>Hours: 9-7pm Mon-Fri, 10-6pm Saturdays</p>
+        <p>Closed on Sundays</p>
+        <p><a href="mailto">abcd@xyz.com</a> </p>
+      </div>
+
+      <div class in="footer-content">
+        <h3 class="footer-heading"><u>Our Services</u></h3>
+        <p>Pet Adoption </p>
+        <p>Pet Essentials</p>
+        <p>Recomending products</p>
+      </div>
+
+
+    </div>
+  </footer>
+
+</body>
+</html>
